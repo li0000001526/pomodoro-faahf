@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://faahf.li00000.xyz/sitemap.xml
