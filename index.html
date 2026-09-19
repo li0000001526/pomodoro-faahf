@@ -187,6 +187,9 @@ footer b{color:var(--t3);font-weight:500}
 </script>
 <style>
 /* friend-links / quality-external-links block (scoped; uses the app's CSS vars) */
+/* z-index:10 = same layer as .wrap; WITHOUT it the sections sit under the
+   fixed bg-vignette veil (z-index:1, 92% black at page bottom) and vanish */
+.fl-links, .fb-seo { position: relative; z-index: 10; }
 .fl-links { max-width: 1120px; margin: 30px auto 0; padding: 0 24px 8px; }
 .fl-links .fl-title { font-size: 13px; font-weight: 800; letter-spacing: .04em; color: var(--t3); margin-bottom: 12px; }
 .fl-links .fl-grid { display: flex; flex-wrap: wrap; gap: 8px; }
