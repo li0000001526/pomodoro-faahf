@@ -155,7 +155,7 @@ footer b{color:var(--t3);font-weight:500}
 <link rel="apple-touch-icon" href="https://faahf.li00000.xyz/share.png">
 <meta name="theme-color" content="#0f1011">
 <meta name="description" content="番茄钟 FOCUS：免费在线专注计时器，专注/短休/长休三模式一键切换，空格开始暂停、R 重置、1/2/3 切模式，结束提示音与浏览器通知，统计与连击本机保存，简中/繁中/英语/日语。">
-<meta name="keywords" content="番茄钟,番茄工作法,专注计时器,休息计时,pomodoro timer,focus timer,在线计时器,时间管理,专注力训练,多语言番茄钟">
+<meta name="keywords" content="番茄钟,番茄工作法,专注计时器,休息计时,pomodoro timer,focus timer,在线计时器,时间管理,专注力训练,深度工作,多语言番茄钟,免费在线工具">
 <link rel="canonical" href="https://faahf.li00000.xyz/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="faahf.li00000.xyz">
@@ -195,14 +195,25 @@ footer b{color:var(--t3);font-weight:500}
 .fl-links a:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
 .fl-links .fl-note { font-size: 11px; color: var(--t4); opacity: .9; margin-top: 12px; line-height: 1.6; max-width: 52ch; }
 @media (max-width:640px){ .fl-links{ padding: 0 16px 8px } }
+/* bottom SEO text block (crawlable keywords + external refs) */
+.fb-seo { max-width: 1120px; margin: 30px auto 0; padding: 0 24px 10px; }
+.fb-seo h2 { font-size: 20px; font-weight: 600; letter-spacing: -.3px; color: var(--t1); margin: 18px 0 10px; }
+.fb-seo .fb-intro { font-size: 14px; line-height: 1.75; color: var(--t3); max-width: 76ch; }
+.fb-seo details { margin: 10px 0; }
+.fb-seo summary { font-size: 14px; font-weight: 600; color: var(--t2); cursor: pointer; list-style: none; padding: 10px 14px; background: var(--panel); border: 1px solid var(--border-soft); border-radius: var(--r-sm); }
+.fb-seo summary:hover { border-color: var(--border); }
+.fb-seo details p { font-size: 13px; line-height: 1.75; color: var(--t3); padding: 10px 14px 12px; max-width: 76ch; }
+.fb-seo .fb-refs { margin-top: 18px; }
+.fb-seo .fb-refs b { font-size: 12px; font-weight: 700; color: var(--t4); letter-spacing: .03em; }
+.fb-seo .fb-refs a { display: inline-flex; align-items: center; gap: 6px; margin: 8px 8px 0 0; text-decoration: none; font-size: 13px; font-weight: 500; color: var(--t2); background: var(--panel); border: 1px solid var(--border-soft); border-radius: 999px; padding: 6px 12px; transition: color .2s, border-color .2s; white-space: nowrap; }
+.fb-seo .fb-refs a:hover { color: var(--t1); border-color: var(--violet); }
+@media (max-width:640px){ .fb-seo{ padding: 0 16px 10px } }
 </style>
 <script>
-// ===== faahf-tabseo v1 runtime (regen-safe: re-stamps keyword title + friend-links on every lang switch) =====
+// ===== faahf-tabseo v1 runtime (regen-safe: re-stamps keyword title + bottom-SEO + friend-links on every lang switch) =====
 (function () {
   // NOTE: external domains are assembled from parts so the literal never sits on disk
   // (a masked/corrupted URL in JSON-LD or <a href> would silently break it).
-  var ORIGIN = 'https://' + 'faahf.li00000' + '.xyz/';
-  var SCHEMA = 'https://' + 'schema' + '.org';
   var LANGS = ['zh-CN', 'zh-TW', 'en', 'ja'];
   var TAB_TITLES = {
     'zh-CN': '番茄钟 FOCUS｜免费在线专注计时器 · 休息提醒 · 多语言',
@@ -212,7 +223,7 @@ footer b{color:var(--t3);font-weight:500}
   };
   function flHost(sub) { return 'https://' + sub + '.li00000' + '.xyz/'; }
   var FRIEND = {
-    zh: { 'fl.title':'优质外链 · 友情链接',
+    'zh-CN': { 'fl.title':'优质外链 · 友情链接',
       'fl.bmuws':'🍞 烘焙食谱计算器','fl.tjtkw':'💪 健身体脂计算器','fl.bwzib':'🔥 篝火燃料估算计算器',
       'fl.cpnfx':'🔒 密码管理','fl.eewtg':'⏰ 番茄钟','fl.blog':'📈 养老金计算器',
       'fl.note':'免费在线小工具集 · 均来自 li00000.xyz · 点击在新标签打开' },
@@ -229,19 +240,76 @@ footer b{color:var(--t3);font-weight:500}
       'fl.cpnfx':'🔒 パスワード管理','fl.eewtg':'⏰ ポモドーロ','fl.blog':'📈 老後資金 プランナー',
       'fl.note':'無料オンライン小ツール集 · すべて li00000.xyz · 別タブで開く' }
   };
+  // visible bottom-SEO block (crawlable keyword text + authoritative external refs), 4 languages
+  var FBSEO = {
+    'zh-CN': {
+      'fb.h2':'什么是番茄工作法？FOCUS 番茄钟使用指南',
+      'fb.intro':'FOCUS 是一款免费在线番茄钟计时器，浏览器直接打开即可使用，无需下载、无需注册。番茄工作法（Pomodoro Technique）把专注切成 25 分钟一节，中间穿插 5 分钟短休息，每 4 个番茄钟安排一次 15-30 分钟长休息——这是被广泛验证的时间管理方法，适合学习、写作、编程等深度工作，帮助保持专注、避免倦怠。',
+      'fb.q1':'如何设置专注和休息时长？',
+      'fb.a1':'点击右上角「设置」，可调整专注 / 短休 / 长休的分钟数与长休触发频率，默认 25-5-15 节奏。快捷键：空格开始/暂停，R 重置，1/2/3 切换专注、短休、长休模式。',
+      'fb.q2':'使用番茄钟需要注册账号吗？数据会上传吗？',
+      'fb.a2':'不需要。今日番茄数、专注总时长、连续天数与全部设置都只保存在本机浏览器的 localStorage 中，不会上传到任何服务器，也不离开你的设备。',
+      'fb.q3':'番茄钟的节奏怎么安排最好？',
+      'fb.a3':'经典节奏：25 分钟专注 + 5 分钟短休息，每 4 个番茄钟休息 15-30 分钟。做深度工作时可把专注段延长到 45-50 分钟，但休息时间保持在专注时长的 1/5 左右，效果更稳定。',
+      'fb.refs':'参考与延伸阅读',
+      'fb.ref1':'📖 维基百科 · 番茄工作法（Pomodoro Technique）',
+      'fb.ref2':'📖 维基百科 · 深度工作（Deep Work）'
+    },
+    'zh-TW': {
+      'fb.h2':'什麼是番茄鐘工作法？FOCUS 番茄鐘使用指南',
+      'fb.intro':'FOCUS 是一款免費線上番茄鐘計時器，瀏覽器直接打開就能用，無需下載、無需註冊。番茄鐘工作法（Pomodoro Technique）把專注切成 25 分鐘一節，中間穿插 5 分鐘短休息，每 4 個番茄鐘安排一次 15-30 分鐘長休息——這是被廣泛驗證的時間管理方法，適合學習、寫作、程式設計等深度工作，幫助保持專注、避免倦怠。',
+      'fb.q1':'如何設定專注與休息時長？',
+      'fb.a1':'點右上角「設定」，可調整專注 / 短休 / 長休的分鐘數與長休觸發頻率，預設 25-5-15 節奏。快捷鍵：空白鍵開始/暫停，R 重設，1/2/3 切換專注、短休、長休模式。',
+      'fb.q2':'使用番茄鐘需要註冊帳號嗎？數據會上傳嗎？',
+      'fb.a2':'不需要。今日番茄數、專注總時長、連續天數與全部設定都只存在本機瀏覽器的 localStorage 中，不會上傳到任何伺服器，也不離開你的裝置。',
+      'fb.q3':'番茄鐘的節奏怎麼安排最好？',
+      'fb.a3':'經典節奏：25 分鐘專注 + 5 分鐘短休息，每 4 個番茄鐘休息 15-30 分鐘。做深度工作時可把專注段拉到 45-50 分鐘，但休息時間保持在專注時長的 1/5 左右，效果更穩定。',
+      'fb.refs':'參考與延伸閱讀',
+      'fb.ref1':'📖 維基百科 · 番茄鐘工作法（Pomodoro Technique）',
+      'fb.ref2':'📖 維基百科 · 深度工作（Deep Work）'
+    },
+    en: {
+      'fb.h2':'What Is the Pomodoro Technique? FOCUS Timer Guide',
+      'fb.intro':'FOCUS is a free online pomodoro timer that runs right in your browser — no download, no sign-up. The Pomodoro Technique breaks focus into 25-minute sprints with 5-minute breaks, plus a longer 15-30 minute break every 4 pomodoros. It is a widely validated time-management method that helps with deep work, study and writing while preventing burnout.',
+      'fb.q1':'How do I set focus and break durations?',
+      'fb.a1':'Open Settings and adjust focus / short-break / long-break minutes and the long-break frequency (default 25-5-15). Shortcuts: Space starts/pauses, R resets, 1/2/3 switch between focus, short break and long break modes.',
+      'fb.q2':'Does the pomodoro timer need an account? Is my data uploaded?',
+      'fb.a2':'No. Your today pomodoros, total focus time, streak days and every setting stay only in this browser\u2019s localStorage — nothing is uploaded to any server, and data never leaves your device.',
+      'fb.q3':'What is the best pomodoro rhythm?',
+      'fb.a3':'The classic rhythm is 25 min focus + 5 min short break, with a 15-30 min long break every 4 pomodoros. For deep work you can stretch focus to 45-50 min, but keep breaks near 1/5 of focus time for the most stable results.',
+      'fb.refs':'References & further reading',
+      'fb.ref1':'📖 Wikipedia · Pomodoro Technique',
+      'fb.ref2':'📖 Wikipedia · Deep Work'
+    },
+    ja: {
+      'fb.h2':'ポモドーロ技法とは？FOCUS タイマー利用ガイド',
+      'fb.intro':'FOCUS はブラウザでそのまま使える無料オンライン・ポモドーロタイマー。ダウンロードも登録も不要です。ポモドーロ技法は集中を 25 分ブロックに区切り、5 分の短い休憩を挟み、4 個ごとに 15-30 分の長休憩を取る、広く実証された時間管理法。深い集中（Deep Work）、勉強、執筆に効果的で、燃え尽き防止にもつながります。',
+      'fb.q1':'集中・休憩時間は変更できますか？',
+      'fb.a1':'右上の「設定」から集中／ショートブレイク／ロングブレイクの分と長休憩頻度を調整できます（既定 25-5-15）。ショートカット：Space で開始/停止、R でリセット、1/2/3 でモード切替。',
+      'fb.q2':'アカウント登録は必要？データはアップロードされますか？',
+      'fb.a2':'不要です。本日のポモドーロ数・集中合計・連続日数・全設定は、すべてこのブラウザの localStorage にのみ保存されます。サーバーへ送信されることも、端末の外に出ることもありません。',
+      'fb.q3':'理想のポモドーロのペースは？',
+      'fb.a3':'定番は「集中 25 分＋短休憩 5 分」、4 ブロックごとに 15-30 分の長休憩。深い集中狙いで 45-50 分にしても、休憩は集中時間の 1/5 程度に保つのがコツです。',
+      'fb.refs':'参考・延伸阅读',
+      'fb.ref1':'📖 Wikipedia · Pomodoro Technique',
+      'fb.ref2':'📖 Wikipedia · Deep Work'
+    }
+  };
   function key() {
     var l = document.documentElement.getAttribute('lang') || 'zh-CN';
     return (LANGS.indexOf(l) !== -1) ? l : 'zh-CN';
   }
-  function langGroup() {
-    var l = key();
-    return (l === 'zh-CN') ? 'zh' : (l === 'zh-TW' ? 'zh-TW' : (l === 'en' ? 'en' : 'ja'));
-  }
   function restamp() {
-    var k = key(), g = langGroup(), d = FRIEND[g] || FRIEND['zh'];
+    var k = key();
     document.title = (TAB_TITLES[k] || TAB_TITLES['zh-CN']);
     document.querySelectorAll('[data-faahf]').forEach(function (el) {
+      var d = FRIEND[k] || FRIEND['zh'];
       var v = d[el.getAttribute('data-faahf')];
+      if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-fb]').forEach(function (el) {
+      var d = FBSEO[k] || FBSEO['zh'];
+      var v = d[el.getAttribute('data-fb')];
       if (v != null) el.innerHTML = v;
     });
   }
@@ -684,6 +752,27 @@ footer b{color:var(--t3);font-weight:500}
 })();
 </script>
 <!-- ===== faahf-links v1 body (regen-safe) ===== -->
+<section class="fb-seo" aria-label="番茄钟介绍 / About Pomodoro / 优质参考">
+  <h2 data-fb="fb.h2">什么是番茄工作法？FOCUS 番茄钟使用指南</h2>
+  <p class="fb-intro" data-fb="fb.intro">FOCUS 是一款免费在线番茄钟计时器，浏览器直接打开即可使用，无需下载、无需注册。番茄工作法（Pomodoro Technique）把专注切成 25 分钟一节，中间穿插 5 分钟短休息，每 4 个番茄钟安排一次 15-30 分钟长休息——这是被广泛验证的时间管理方法，适合学习、写作、编程等深度工作，帮助保持专注、避免倦怠。</p>
+  <details>
+    <summary data-fb="fb.q1">如何设置专注和休息时长？</summary>
+    <p data-fb="fb.a1">点击右上角「设置」，可调整专注 / 短休 / 长休的分钟数与长休触发频率，默认 25-5-15 节奏。快捷键：空格开始/暂停，R 重置，1/2/3 切换专注、短休、长休模式。</p>
+  </details>
+  <details>
+    <summary data-fb="fb.q2">使用番茄钟需要注册账号吗？数据会上传吗？</summary>
+    <p data-fb="fb.a2">不需要。今日番茄数、专注总时长、连续天数与全部设置都只保存在本机浏览器的 localStorage 中，不会上传到任何服务器，也不离开你的设备。</p>
+  </details>
+  <details>
+    <summary data-fb="fb.q3">番茄钟的节奏怎么安排最好？</summary>
+    <p data-fb="fb.a3">经典节奏：25 分钟专注 + 5 分钟短休息，每 4 个番茄钟休息 15-30 分钟。做深度工作时可把专注段延长到 45-50 分钟，但休息时间保持在专注时长的 1/5 左右，效果更稳定。</p>
+  </details>
+  <div class="fb-refs">
+    <b data-fb="fb.refs">参考与延伸阅读</b>
+    <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank" rel="noopener" data-fb="fb.ref1">📖 维基百科 · 番茄工作法（Pomodoro Technique）</a>
+    <a href="https://en.wikipedia.org/wiki/Deep_work" target="_blank" rel="noopener" data-fb="fb.ref2">📖 维基百科 · 深度工作（Deep Work）</a>
+  </div>
+</section>
 <section class="fl-links" aria-label="友链 / Quality links / 优质外链">
   <div class="fl-title" data-faahf="fl.title">优质外链 · 友情链接</div>
   <div class="fl-grid">
